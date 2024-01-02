@@ -1,0 +1,68 @@
+The following Code represem=nts the Mobile application for Train booking
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyTrainApp());
+}
+
+class MyTrainApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Train Booking App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Train Booking'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => BookingPage()),
+            );
+          },
+          child: Text('Book a Train'),
+        ),
+      ),
+    );
+  }
+}
+
+class BookingPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Book a Train'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Select your destination and date.'),
+            // Add form elements, date pickers, destination selectors, etc.
+            ElevatedButton(
+              onPressed: () {
+                // Implement booking logic here
+                Navigator.pop(context); // Go back to the home page
+              },
+              child: Text('Book Now'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
